@@ -1,0 +1,17 @@
+<%- include("../partials/header") %>
+
+    <div class="container afternav text-center">
+            <img src="<%=user.profilepic%>" class="img-thumbnail largeprofile">
+            <form action="/<%=user._id%>/profile/editphoto" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                <label>Change Photo</label>
+                <input type="file" class="form-control-file" name="profile_pic">
+                <button class="btn btn-xs btn-primary">Save</button>
+                </div>
+                
+            </form>
+
+    </div>
+
+
+<%- include("../partials/footer") %>

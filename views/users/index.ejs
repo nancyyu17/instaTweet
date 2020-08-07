@@ -1,0 +1,75 @@
+<%- include("../partials/header") %>
+<div class="container afternav">
+    <div class = "row">
+        <!-- side bar -->
+        <div class = "col-md-3">
+            <div class="list-group">
+              <% if(currentUser && user._id.equals(currentUser._id)){%>
+                <li class="list-group-item list-group-item-action list-group-item-info"><a href = "/<%=user._id%>/profile">Profile Information</a></li>
+                <li class="list-group-item"><a href = "/<%=user._id%>/profile/history">Tweet History</a></li>
+                <% }%>
+                <li class="list-group-item"><a href = "/<%=user._id%>/profile/following">Following</a></li>
+                <li class="list-group-item"><a href = "/<%=user._id%>/profile/followers">Followers</a></li>
+            </div>
+        </div>
+
+        <div class = "col-md-9">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <div class="text-center">
+                        <th scope="col">Profile Information</th>
+                    </div>
+                    
+                  </tr>
+                </thead>
+
+                <form action="/<%=user._id%>/profile?_method=PUT" method="POST">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                    <tbody>
+                        <tr>
+                              <th scope="row">Profile Photo</th>
+                              <td>
+                                  <div class="text-center">
+                                      <a href = "/<%=user._id%>/profile/editphoto">
+                                        <img src="<%=user.profilepic%>" class="img-thumbnail largeprofile"><br>
+                                        <p>Edit profile photo</p>
+                                      </a>
+                                      
+                                  </div>
+                                    
+                              </td>
+                            </tr>  
+                        <tr>
+                          <th scope="row">Username</th>
+                          <td><%=user.username%></td>
+                        </tr>
+      
+                        <tr>
+                          <th scope="row">Joined</th>
+                          <td><%=user.createdAt.toDateString()%></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Introduction</th>
+                          <td><textarea class = "form-control" rows="3" col = "35" maxlength = "100" name = "user[intro]"><%= user.intro %></textarea>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row"> </th>
+                          <td>
+                            <button class="btn btn-xs btn-primary pull-right">Save</button>
+                          </td>
+                        </tr>
+                    </tbody>
+                </form>
+
+            </table>
+        </div>
+    </div>
+    
+    
+</div>
+    
+    
+<%- include("../partials/footer") %>

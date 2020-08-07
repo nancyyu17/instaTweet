@@ -1,0 +1,33 @@
+<%- include("../partials/header") %>
+<div class="container afternav">
+    <h3 style="padding-bottom: 3%;">Search Results</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>            
+            <% if (users.length < 1){%>
+                <tr>
+                    <th scope="row"> No Matched Results</th>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                </tr>
+            <%} else { %>
+                <% users.forEach(function(user){%>
+                    <tr>
+                        <th scope="row"><a href="/<%=user.username%>/blogposts"><img src="<%=user.profilepic%>" class="smallprofile"></a></th>
+                        <th scope="row"><a href="/<%=user.username%>/blogposts"><%=user.username%> </a></th>
+                        <th scope="row"><%=user.intro%></th>
+                    </tr>  
+                <% })%>
+            <%} %>
+            
+
+        </tbody>
+    </table>
+  </div>
+  <%- include("../partials/footer") %>

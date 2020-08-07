@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+
+<div class = "container afternav">
+    <div style="width: 30%; margin: 25px auto;">
+        <form action="/forgotpassword" method="POST">
+            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+            <legend> Forgot Password</legend>
+            <hr>
+            <div class="form-group">
+                <label for = "email">Email</label>
+                <input type = "email" name = "email" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-xs btn-primary">Reset Password</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<%- include("../partials/footer") %>

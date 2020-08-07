@@ -1,0 +1,20 @@
+<%- include("../partials/header") %>
+<div class="container afternav">
+    <div style="width: 30%; margin: 25px auto;">
+        <form action="/blogposts/<%= blogpost_id%>/comments/<%= comment._id%>?_method=PUT" method="POST">
+            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+            <div class="form-group">
+                <label>Edit Comment</label>
+                <textarea class = "form-control" rows="5" col = "35" maxlength = "1000"  name = "comment[text]"><%= comment.text%></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-xs btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+    
+</div>
+
+
+<%- include("../partials/footer") %>

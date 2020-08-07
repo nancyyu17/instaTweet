@@ -1,0 +1,49 @@
+<%- include("../partials/header") %>
+<div class="container afternav">
+    <div class = "row">
+        <!-- side bar -->
+        <div class = "col-md-3">
+            <div class="list-group">
+                <% if(currentUser && user._id.equals(currentUser._id)){%>
+                <li class="list-group-item"><a href = "/<%=user._id%>/profile">Profile Information</a></li>
+                <li class="list-group-item"><a href = "/<%=user._id%>/profile/history">Tweet History</a></li>
+                <% }%>
+                <li class="list-group-item"><a href = "/<%=user._id%>/profile/following">Following</a></li>
+                <li class="list-group-item list-group-item-action list-group-item-info"><a href = "/<%=user._id%>/profile/followers">Followers</a></li>
+            </div>
+        </div>
+
+        <div class = "col-md-9">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Followers</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% user.followers.forEach(function(follower){%>
+                        <tr>
+                            <th scope="row"><a href="/<%=follower.username%>/blogposts"><img src="<%=follower.profilepic%>" class="xssmallprofile">   <%=follower.username%> </a></th>
+                            <td class="float-center">
+                                <% if(currentUser && user._id.equals(currentUser._id)){%>
+                                <form action ="/<%=user._id%>/profile/followers/<%=follower._id%>" method="POST">
+                                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                                    <button class="btn btn-sm btn-outline-success">Remove</button>
+                                </form>
+                                <%}%>
+
+                            </td>
+                        </tr>  
+                    <% })%>
+
+                </tbody>
+              </table>
+        </div>
+    </div>
+    
+    
+</div>
+    
+    
+<%- include("../partials/footer") %>

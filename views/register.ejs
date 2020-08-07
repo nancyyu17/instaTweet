@@ -1,0 +1,52 @@
+<%- include("./partials/header") %>
+<div class="login-page afternav">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-8 m-auto col-sm-8 col-12">
+				<div class="log-box">
+					<div class="row">
+						<div class="col-xl-5 col-sm-5 col-12 pad-right-0">
+							<div class="signup-back">
+							</div>
+						</div>
+						<div class="col-xl-7 col-sm-7 col-12 pad-left-0">
+							<div class="log-content">
+								<h1>Sign Up </h1>
+								<div class="log-body">
+								
+									<form action = "/register" method="post">
+										<input type="hidden" name="_csrf" value="<%=csrfToken%>">
+										<div class="form-group myr-top">
+											<label>Username</label>
+											<input type="text" class="form-control custom" name="username" placeholder="username">
+										</div>
+										<div class="form-group myr-top">
+											<label>Email</label>
+											<input type="text" class="form-control custom" name="email" placeholder="email">
+										</div>
+										<div class="form-group myr-top">
+											<label>Password</label>
+											<input type="password" class="form-control custom" name="password" placeholder="password">
+										</div>
+										<div class="form-group myr-top">
+											<label>Introduction</label>
+											<textarea name="intro"  class="form-control custom" row = "3" maxlength = "100" placeholder="Briefly introduce yourself (optional)"></textarea>
+										</div>
+										<div class="log-btn text-center">
+											<button class="btn btn-theme1">Sign Up</button>
+										</div>  
+									</form>
+
+								<div class="log-bottom-cotent">
+								Already have an account? <a href="/login">Login</a>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%- include("./partials/footer") %>
