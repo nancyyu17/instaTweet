@@ -1,7 +1,6 @@
 # InstaTweet
 This is a blogpost website developed with Nodejs and Mongodb. 
 
-It's now deployed on AWS EC2. Visit the site [here](https://instatweet.cf/)
 
 ## Installation
 ```bash
